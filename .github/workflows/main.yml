@@ -18,19 +18,10 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ubuntu
         key: ${{ secrets.EC2_SSH_KEY }}
-#        script: |
-#          cd /home/ubuntu/nuage
-#          git pull origin main
-#          source venv/bin/activate
-#          pip install -r requirements.txt
-#          pkill -f app.py
-#          nohup python3 app.py > output.log 2>&1 &
         script: |
           cd /home/ubuntu/nuage
           git pull origin main
           source venv/bin/activate
           pip install -r requirements.txt
-#          pkill -f app.py || echo "No process found"
+#          pkill -f app.py
           nohup python3 app.py > output.log 2>&1 &
-          disown
-          echo "Deployment completed successfully."
