@@ -43,7 +43,7 @@ jobs:
       # Step 6: Initialize Elastic Beanstalk Application
       - name: Initialize Elastic Beanstalk
         run: |
-          eb init -p python-3.8 my-python-api --region ${{ secrets.AWS_REGION }} --no-verify-ssl
+          eb init -p python-3.8 my-python-rest-api --region ${{ secrets.AWS_REGION }} --no-verify-ssl
           eb create my-python-api-env --single
           eb use my-python-api-env
 
