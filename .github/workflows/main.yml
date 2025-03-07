@@ -23,8 +23,8 @@ jobs:
           git pull origin main
           source venv/bin/activate
           pip install -r requirements.txt
-          PID=$(pgrep -f "python3 app.py")
           set -x
+          PID=$(pgrep -f "python3 app.py")
           if [ -n "$PID" ]; then
             echo "Stopping existing Flask process..."
             kill -9 "$PID"
@@ -32,7 +32,7 @@ jobs:
           else
             echo "No running Flask process found."
           fi
+          set +x
           nohup python3 app.py > output.log 2>&1 &
           disown
           echo "Deployment completed successfully."
-          set +x
