@@ -23,5 +23,7 @@ jobs:
           git pull origin main
           source venv/bin/activate
           pip install -r requirements.txt
-          pkill -f app.py
+          pkill -f app.py || echo "No process found"
           nohup python3 app.py > output.log 2>&1 &
+          disown
+          echo "Deployment completed successfully."
