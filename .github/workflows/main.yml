@@ -21,7 +21,7 @@ jobs:
         script: |
           cd /home/ubuntu/nuage
           URL="http://16.171.174.229/:5000"
-          HTTP_STATUS=$(curl -s --connect-timeout 5 "$URL")
+          HTTP_STATUS=$(curl -s -o test.txt -w "%{http_code}" --connect-timeout 5 "$URL")
           echo "HTTP Status: $HTTP_STATUS"
           echo "Response content:"
           cat test.txt
