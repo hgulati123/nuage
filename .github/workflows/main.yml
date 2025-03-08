@@ -19,6 +19,8 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
+          cd /home/ubuntu
+          git clone https://github.com/hgulati123/nuage.git
           cd /home/ubuntu/nuage
           chmod +x deployment.sh
           ./deployment.sh
