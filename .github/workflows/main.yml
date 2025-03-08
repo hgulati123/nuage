@@ -25,7 +25,7 @@ jobs:
           pip install -r requirements.txt
           PID=$(pgrep -f "python3 app.py")
           if [ -n "$PID" ]; then
-            echo "Stopping existing Flask process..."
+            echo "Stopping existing app process: $PID"
             kill -9 "$PID"
             sleep 5
           else
