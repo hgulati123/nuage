@@ -20,4 +20,9 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           cd /home/ubuntu/nuage
-          bash deployment.sh
+          curl -s http://$host:5000 > test.txt
+          if [ -s test.txt ]; then
+            bash deployment.sh
+          else
+            bash deployment_first.sh
+          fi
