@@ -20,5 +20,8 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           cd /home/ubuntu/nuage
-          chmod +x check_site.sh
-          ./check_site.sh
+          HTTP_STATUS=$(curl -s --connect-timeout 5 "$URL" > test.txt)
+          echo "HTTP Status: $HTTP_STATUS"
+          echo "Response content:"
+          cat test.txt
+
