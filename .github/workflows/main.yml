@@ -21,11 +21,11 @@ jobs:
         script: |
           PATH_TO_CHECK="/home/ubuntu/nuage"
           if [ -e "$PATH_TO_CHECK" ]; then
-            cd /home/ubuntu
-            git clone https://github.com/hgulati123/nuage.git
-          else
             cd /home/ubuntu/nuage
             chmod +x deployment.sh
             ./deployment.sh
+          else
+            cd /home/ubuntu
+            git clone https://github.com/hgulati123/nuage.git
           fi
 
