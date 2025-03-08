@@ -27,5 +27,10 @@ jobs:
           else
             cd /home/ubuntu
             git clone https://github.com/hgulati123/nuage.git
+            python3 -m venv venv
+            source venv/bin/activate
+            cd /home/ubuntu/nuage
+            chmod +x deployment.sh
+            ./deployment.sh
           fi
 
