@@ -14,4 +14,4 @@ else
 fi
 nohup python3 app.py > output.log 2>&1 &
 disown
-echo "Deployment completed successfully."
+echo "Deployment completed successfully.."
