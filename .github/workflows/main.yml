@@ -20,9 +20,10 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           cd /home/ubuntu/nuage
+          python3 -m venv venv
+          source venv/bin/activate
           echo "pulling the code"
           git pull origin main
-          source venv/bin/activate
           pip install -r requirements.txt
           nohup python3 app.py > output.log 2>&1 &
           disown
