@@ -1,7 +1,8 @@
 #!/bin/bash
 cd /home/ubuntu/nuage
-git pull origin main
+python3 -m venv venv
 source venv/bin/activate
+git pull origin main
 pip install -r requirements.txt
 PID=$(pgrep -f "python3 app.py")
 echo "$PID is outside if"
