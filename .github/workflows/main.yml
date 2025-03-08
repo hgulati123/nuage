@@ -22,7 +22,9 @@ jobs:
           cd /home/ubuntu/nuage
           curl -s http://$host:5000 > test.txt
           if [ -s test.txt ]; then
+            echo " updating deployment"
             bash deployment.sh
           else
+            echo " New deployment"
             bash deployment_first.sh
           fi
