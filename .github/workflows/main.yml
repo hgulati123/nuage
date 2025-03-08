@@ -19,4 +19,5 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
+          cd /home/ubuntu/nuage
           bash deployment.sh
